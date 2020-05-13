@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Float and Align</title>
+  <style>
+    * {
+      /* To ensure we don't have display difficulties when using the 'float' property */
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.4em;
+    }
+    /* The container class is often used to encapsulate all data within a webpage. 
+      Here we use the 'auto' value for the margin property, which applies an equal margin to each side of the div, positioning it in the center 
+      Here we add 30px to the top and bottom, and then use auto to calculate how much margin is needed on the left and right to center it */
+    .container {
+      /* The 'max-width' property ensures that the text wraps around, meaning a more responsive design. 
+        Always use max-width when setting a container's width */
+      max-width: 650px;
+      margin: 30px auto;
+    }
+
+    .box {
+      border: 1px solid #333;
+      background: #f4f4f4;
+      padding: 20px;
+      margin-bottom: 15px;
+    }
+
+    /* Targeting the text within the box class */
+    .box p {
+      text-align: center;
+      /* When set to justify, the 'text-justify' property determines how the words are aligned. */
+      text-align: justify;
+      text-justify: auto;
+    }
+
+    .clr {
+      clear: both;
+    }
+
+    /* You don't want to use float for real-world developing, but it's good to understand it as a fundamental
+      Without the box-sizing property set to border-box, you will note that, even though the 70% and 30% values add to 100%, and should thus be
+      displayed side-by-side, the margin and the padding will be added on top of this 100% value, and you can thus observe that there is overlap
+      To rid of this issue, always ensure that you set the box-sizing property to 'border-box', lest you face all sorts of sizing issues that may
+      leave you banging your head against the keyboard. */
+    #box2 {
+      float: left;
+      width: 68%;
+      /* We could just set the box-sizing property for these items, but, since this is something we want for the entire webpage, it's better to just set
+        it above, for the entire webpage */
+      /* box-sizing: border-box; */
+    }
+
+    #box3 {
+      float: right;
+      width: 30%;
+      /* box-sizing: border-box; */
+
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div id="box1" class="box">
+      <h3>Heading 1</h3>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius deserunt aliquam, labore deleniti officiis esse! Esse, delectus? Unde, sapiente fugit?</p>
+    </div>
+    <div id="box2" class="box">
+      <h3>Heading 2</h3>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius deserunt aliquam, labore deleniti officiis esse! Esse, delectus? Unde, sapiente fugit?</p>
+    </div>
+    <div id="box3" class="box">
+      <h3>Heading 3</h3>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius deserunt aliquam, labore deleniti officiis esse! Esse, delectus? Unde, sapiente fugit?</p>
+    </div>
+    <!-- Without 'clearing' elements underneath floated elements, you will notice that these elements underneath will overlap what has been floated directly
+      above. To stop this from happening, we must 'clear' the floated elements, which essentially partitions them from the elements underneat. No need to
+      be concerned with the technicalities of this, for you won't be using float much in the future.
+      We can clear for the left, right, or both. If we just do left or right, then the element underneath can still overlap the opposite side, so clear both. -->
+
+    <div class="clr"></div>
+
+    <div id="box4" class="box">
+      <h3>Heading 4</h3>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius deserunt aliquam, labore deleniti officiis esse! Esse, delectus? Unde, sapiente fugit?</p>
+    </div>
+  </div>
+</body>
+</html>

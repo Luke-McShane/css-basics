@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flex Basics</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .header {
+      text-align: center;
+      background: crimson;
+      color: white;
+      padding: 1px;
+      margin: 0;
+    }
+
+    .flexbox {
+      display: flex;
+      margin-bottom: 150px;
+      background: #333;
+
+      /* By defauly, the align-item property it set to "align-items: stretch;" which
+        means that all flex-items will stretch to fill the cross axis.
+        This is why flex-items in a container with "flex-direction: row;" will always
+        stretch vertically to fill the entire cross axis (y-axis)
+        To override this we can set "align-items: flex-start;" */
+      align-items: flex-start;
+    }
+
+    .flexbox div {
+      width: 200px;
+      border: 2px solid red;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      margin: 10px;
+      border-radius: 10px;
+      /* align-items: flex-start; */
+    }
+
+
+    #flex-row-1 {
+      justify-content: space-evenly;
+    }
+
+    #flex-row-2 {
+      justify-content: space-around;
+    }
+
+    #flex-row-3 {
+      justify-content: space-between;
+    }
+
+    #flex-row-4 {
+      height: 400px;
+      justify-content: space-evenly;
+    }
+
+    #flex-row-4 #flex-row-4-1 {
+      align-self: flex-start;
+    }
+    
+    #flex-row-4 #flex-row-4-2 {
+      align-self: center;
+    }
+
+    #flex-row-4 #flex-row-4-3 {
+      align-self: flex-end;
+    }
+
+
+
+    #flex-col-1 {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    #flex-col-2 {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #flex-col-3 {
+      flex-direction: column;
+      align-items: flex-end;
+    }
+
+    #flex-col-4 {
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    #flex-col-4 #flex-col-4-1 {
+      align-self: flex-start;
+    }
+
+    #flex-col-4 #flex-col-4-2 {
+      align-self: center;
+    }
+
+    #flex-col-4 #flex-col-4-3 {
+      align-self: flex-end;
+    }
+  </style>
+</head>
+<body>
+    <div class="header">
+      <h2>"justify-content: space-evenly;"</h2>
+    </div>  
+    <div class="flexbox" id="flex-row-1">
+      <div>
+        <h1>Item 1</h1>
+      </div>
+      <div>
+        <h1>Item 2</h1>
+      </div>
+      <div>
+        <h1>Item 3</h1>
+      </div>
+    </div>
+
+  <div class="header">
+    <h2>"justify-content: space-around;"</h2>
+  </div>
+  <div class="flexbox" id="flex-row-2">
+    <div>
+      <h1>Item 1</h1>
+    </div>
+    <div>
+      <h1>Item 2</h1>
+    </div>
+    <div>
+      <h1>Item 3</h1>
+    </div>
+  </div>
+
+  <div class="header">
+    <h2>"justify-content: space-between;"</h2>
+  </div>
+  <div class="flexbox" id="flex-row-3">
+    <div>
+      <h1>Item 1</h1>
+    </div>
+    <div>
+      <h1>Item 2</h1>
+    </div>
+    <div>
+      <h1>Item 3</h1>
+    </div>
+  </div>
+
+  <div class="header">
+    <h2>Setting "align-self" for each flex-item after 
+      giving the flex-container a height</h2>
+  </div>  
+  <div class="flexbox" id="flex-row-4">
+    <div id="flex-row-4-1">
+      <h1>Item 1</h1>
+    </div>
+    <div id="flex-row-4-2">
+      <h1>Item 2</h1>
+    </div>
+    <div id="flex-row-4-3">
+      <h1>Item 3</h1>
+    </div>
+  </div>
+
+
+
+
+  <div class="header">
+    <h2>"align-items: flex-start"</h2>
+  </div>
+  <div class="flexbox" id="flex-col-1">
+    <div>
+      <h1>Item 1</h1>
+    </div>
+    <div>
+      <h1>Item 2</h1>
+    </div>
+    <div>
+      <h1>Item 3</h1>
+    </div>
+  </div>
+
+  <div class="header">
+    <h2>"align-items: center"</h2>
+  </div>
+  <div class="flexbox" id="flex-col-2">
+    <div>
+      <h1>Item 1</h1>
+    </div>
+    <div>
+      <h1>Item 2</h1>
+    </div>
+    <div>
+      <h1>Item 3</h1>
+    </div>
+  </div>
+
+  <div class="header">
+    <h2>"align-items: flex-end"</h2>
+  </div>
+  <div class="flexbox" id="flex-col-3">
+    <div>
+      <h1>Item 1</h1>
+    </div>
+    <div>
+      <h1>Item 2</h1>
+    </div>
+    <div>
+      <h1>Item 3</h1>
+    </div>
+  </div>
+
+  <div class="header">
+    <h2>Setting "align-self" for each flex-item</h2>
+  </div>
+  <div class="flexbox" id="flex-col-4">
+    <div id="flex-col-4-1">
+      <h1>Item 1</h1>
+    </div>
+    <div id="flex-col-4-2">
+      <h1>Item 2</h1>
+    </div>
+    <div id="flex-col-4-3">
+      <h1>Item 3</h1>
+    </div>
+  </div>
+</body>
+</html>

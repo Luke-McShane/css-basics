@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flex Basics</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* Setting display as flex to a parent item makes it a flex-container and all of its children flex-items
+      Any element can be a flex-item, not just block-level items */
+    .flexbox {
+      display: flex;
+      margin-bottom: 150px;
+      /* We can also set the flexbox to wrap, so that, when the container gets too small to
+        fit all the items, the items wrap around onto the next row/column.
+        If we set flex-direction: row; then the items will wrap onto the next row, if we set
+        flex-direction: column; then the items will wrap onto the next column */
+    }
+
+    .flexbox div {
+      width: 200px;
+      border: 2px solod #333;
+      padding: 10px;
+      margin: 10px;
+      border-radius: 10px;
+    }
+
+    .flexbox .item-1 {
+      background: lightblue;
+    }
+
+    .flexbox .item-2 {
+      background: wheat;
+    }
+
+    .flexbox .item-3 {
+      background: lightgreen;
+    }
+
+    /* The default flex-direction is row
+      When the flex-direction is row, the x-axis is the main axis, and the y-axis is the cross-axis. This is reverse for when the flex-direction is column
+      justify-content pertains to the main-axis so, for flex-direction: row it will affect how the items are spaced across the x-axis
+      align-items pertains to the cross-axis so, for flex-direction: row it will affect how the items are spaced across the y-axis
+      Without custom styling, the flex-items will shrink in accordance with the flex-container. So we can set a static amount of pixels, but this will
+      change as the container shrinks */
+    #flex-container-1 {
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #flex-container-2 {
+      /* This is the same as setting: 
+        flex-grow: 1;
+        flex-shrink 0;
+        flex-basis: 200px;
+        Setting these properties in the flex-container means that each child has
+        these properties */
+      flex: 1 0 200px;
+
+      /* Oftentimes we will simply see:
+        flex: 1;
+        for this simply makes the flex-items take up the entire width, spaced evenly */
+    }
+
+    /* flex-grow determines the growth factor as the width of the container increases
+      Without a flex-basis set, the flex-grow ratio will add on pixels irrelevant
+      of the base width. So, for example, when the flex-container starts increasing
+      with the below example, the first flex-item may have a width of 240px, the
+      secon item witdth of 220px, and the third with a width of 200px */
+    #flex-container-1 #flex-1-1 {
+      flex-grow: 2;
+    }
+
+    #flex-container-1 #flex-1-2 {
+      flex-grow: 1;
+    }
+
+    #flex-container-1 #flex-1-3 {
+      flex-grow: 0;
+    }
+
+    /* When we add a flex-basis, this means that the default widtch isn't taken into
+      account when determining the width. So, if the first item was 600px, then the
+      second would be 300px, because the ration is 2:1, meaning the first item will
+      always be double the width of the first item 
+      
+      Flex-basis affects the element's size across the main axis befor it is manipulated
+      by other flex properties. This can also be used to determine the width/height of the
+      item. So, if we have items in a row and set the flex-basis to 200px, then the item's
+      minimum width will be 200px. If, however, we have 3 items in a column and we set the
+      flex-basis to 200px, then each item's minimum height will be 200px. */
+    #flex-container-2 #flex-2-1 {
+      flex-grow: 2;
+      flex-basis: 0;
+    }
+
+    #flex-container-2 #flex-2-2 {
+      flex-grow: 1;
+      flex-basis: 0;
+    }
+
+    #flex-container-2 #flex-2-3 {
+      flex-grow: 0;
+      /* If we set this item's flex-basis to 0, then it will get made as small as possible,
+        meaning that any content inside will likely get moved undesirably
+        This is because the other two items, with their having flex-basis set and having
+        flex-grow properties, will try and take up all the space in a 2:1 ratio */
+      /* flex-basis: 0; */
+    }
+
+
+    /* By default, each flex-item has a flex-shrink value of 1, meaning that, when the
+      container shrinks past the size that would otherwise accomodate the flex-items with
+      their standard widths set, the flex-items shrink to fit into their container.
+      
+      If we set flex-shrink: 0; for one of the items, then this item will no be allowed
+      to shrink past its default width, and the other items will have to shrink more to
+      accomodate this item's lack of shrinking 
+      
+      If we set flex-shrink: 2; on one item and flex-shrink: 1; on another, the first item
+      will shrink twice as fast as the second item*/
+    #flex-container-3 #flex-3-1 {
+      flex-grow: 1;
+      flex-shrink: 2;
+    }
+
+    #flex-container-3 #flex-3-2 {
+      flex-grow: 2;
+      flex-shrink: 1;
+    }
+
+    #flex-container-3 #flex-3-3 {
+      flex-grow: 3;
+      flex-shrink: 6;
+    }
+
+
+
+
+
+    #flex-container-2 {
+      flex-direction: row-reverse;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    #flex-container-3 {
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #flex-container-4 {
+      flex-direction: column-reverse;
+      justify-content: stretch;
+      align-items: center;
+    }
+
+    #flex-container-5 {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #flex-container-6 {
+      flex-direction: column-reverse;
+      justify-content: stretch;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="flexbox" id="flex-container-1">
+    <div id="flex-1-1" class="item-1">
+      <h1>Item 1</h1>
+    </div>
+    <div id="flex-1-2" class="item-2">
+      <h1>Item 2</h1>
+    </div>
+    <div id="flex-1-3" class="item-3">
+      <h1>Item 3</h1>
+    </div>
+  </div>
+  <div class="flexbox" id="flex-container-2">
+    <div id="flex-2-1" class="item-1">
+      <h1>Item 1</h1>
+    </div>
+    <div id="flex-2-2" class="item-2">
+      <h1>Item 2</h1>
+    </div>
+    <div id="flex-2-3" class="item-3">
+      <h1>Item 3</h1>
+    </div>
+  </div>
+  <div class="flexbox" id="flex-container-3">
+    <div id="flex-3-1" class="item-1">
+      <h1>Item 1</h1>
+    </div>
+    <div id="flex-3-2" class="item-2">
+      <h1>Item 2</h1>
+    </div>
+    <div id="flex-3-3" class="item-3">
+      <h1>Item 3</h1>
+    </div>
+  </div>
+  <div class="flexbox" id="flex-container-4">
+    <div id="flex-4-1" class="item-1">
+      <h1>Item 1</h1>
+    </div>
+    <div id="flex-4-2" class="item-2">
+      <h1>Item 2</h1>
+    </div>
+    <div id="flex-4-3" class="item-3">
+      <h1>Item 3</h1>
+    </div>
+  </div>
+  <div class="flexbox" id="flex-container-5">
+    <div id="flex-5-1" class="item-1">
+      <h1>Item 1</h1>
+    </div>
+    <div id="flex-5-2" class="item-2">
+      <h1>Item 2</h1>
+    </div>
+    <div id="flex-5-3" class="item-3">
+      <h1>Item 3</h1>
+    </div>
+  </div>
+  <div class="flexbox" id="flex-container-6">
+    <div id="flex-6-1" class="item-1">
+      <h1>Item 1</h1>
+    </div>
+    <div id="flex-6-2" class="item-2">
+      <h1>Item 2</h1>
+    </div>
+    <div id="flex-6-3" class="item-3">
+      <h1>Item 3</h1>
+    </div>
+  </div>
+</body>
+</html>

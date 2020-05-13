@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Em and Rem</title>
+</head>
+<style>
+  html {
+    /* 62.5% is equivalent to 10px.
+      When we set a custom font-size for an element that has children, Em units will negate the effects of accessability. So if we set the Chrome browser's font size to 'large',
+      for example, well this font-size will be overridden due to the parent element's font-size being inherited, not the HTML root element (which is set when we set the Chrome
+      browser's default to something like 'Large').
+      
+      Em units mean that we inherit the parent font size. If the parent doesn't have a font-size set, it inherits the closest ancestor with a custom font size
+      This can cause problems if we, say, have nested elements, each of which has a custom font size of 1.2em. Each inherited font will get large and larger, being a multiple
+      of 1.2 of the parent font size.
+      
+      Rem units inherit from the root (html tag) element. This is helpful for consistency. We can also just set the html font-size as 10px, and then we know that, for example,
+      2.2rem will be 22pixels 
+      
+      Finally, if we use Em, it will inherit from its current element. So if the default size for the paragraph is 22px, then the custom font-size of, say, 1.2em will be
+      multiplied against 22px, not the parent font-size*/
+    /* font-size: 10px; */
+    font-size: 62.5%;
+  }
+
+  #box-1 h3 {
+    font-size: 2em;
+  }
+
+  #box-1 p {
+    font-size: 1.6em;
+  }
+
+  #box-2 h3 {
+    font-size: 2rem;
+  }
+
+  #box-1 p {
+    font-size: 1.6eem;
+  }
+</style>
+<body>
+  <div id="box-2">
+    <h3>Box 1</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid quisquam, hic maxime voluptate, officia officiis consectetur natus dolore harum porro corporis accusamus repudiandae dolorum iure sequi dignissimos suscipit. Minus, eaque?</p>
+  </div>
+  <div id="box-2">
+    <h3>Box 2</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid quisquam, hic maxime voluptate, officia officiis consectetur natus dolore harum porro corporis accusamus repudiandae dolorum iure sequi dignissimos suscipit. Minus, eaque?</p>
+  </div>
+  <div id="list">
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>
+        <ul>
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+          <li>4</li>
+        </ul>
+      </li>
+      <li>4</li>
+    </ul>
+  </div>
+</body>
+</html>

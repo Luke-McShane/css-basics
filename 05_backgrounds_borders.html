@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Backgrounds and Borders</title>
+  <style>
+    #box1 {
+      background-color: blanchedalmond;
+      border-width: 3px;
+      border-color: red;
+      border-style: groove;
+      /* The aboce is equivalent to: */
+      /* border: 3px groove red; */
+      /* We can round the corners of borders with the border-radius property */
+      border-radius: 10px;
+    }
+
+    #box2 {
+      background-color: #333;
+      color: #ffffff;
+      /* We can target specific sides */
+      border-top: 3px dotted yellowgreen;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 8px;
+    }
+
+    #box3 {
+      /* He we select an imagine through a url. Below I describe how each file path would correspond to what folder.
+        'stars.jpg' - searches the current folder for the image
+        'img/stars.jpg' - stars.jpg is located within the img folder in the current directory (the directory this HTML document is in)
+        '/img/stars.jpg' - stars.jpg is located in the img folder that is at the root of the current 'web' 
+        '../..img/stars.jpg - stars.jpg is located in the img folder two levels up from the current directory */
+      background-image: url('../img/stars.jpg');
+      /* background-position takes two values: how much we want to alter the position on the x-axis, and how much on the y-axis. Negative values are valid.
+        We can also use values such as 'center' and 'right' */
+      background-position: -10px 1px;
+      /* If he have a small image, we can choose to repeat it, and in what manner it repeats. */
+      background-repeat: no-repeat;
+      /* We can set how large the image is. If we want the entire image to be shown, no matter the size of its container, we can use the 'cover' value */
+      background-size: cover;
+      /* We can incoporate all of the above into a single line. The background-size must come after a forward slash, however: */
+      /* background-image: url('../img/stars.jpg') no-repeat -10px 1px/cover */
+      color: #ffffff;
+      height: 300px;
+      width: 600px;
+    }
+
+    #box4 {
+      /* We can use 'background' and it works for 'background-image' */
+      background: url('../img/leaf.png') no-repeat center center;
+      /* This property and value combination fixes the image to the browser window. We can see the effect when scrolling. */
+      background-attachment: fixed;
+    }
+  </style>
+</head>
+<body>
+  <div id="box1">
+    <h3>Box 1</h3>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto perferendis aliquid tenetur harum voluptatem debitis commodi ab quisquam beatae libero?</p>
+  </div>
+  <br>
+  <div id="box2">
+    <h3>Box 2</h3>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto perferendis aliquid tenetur harum voluptatem debitis commodi ab quisquam beatae libero?</p>
+  </div>
+  <div id="box3">
+    <h3>Box 3</h3>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto perferendis aliquid tenetur harum voluptatem debitis commodi ab quisquam beatae libero?</p>
+  </div>
+  <div id="box4">
+    <h3>Box 4</h3>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto perferendis aliquid tenetur harum voluptatem debitis commodi ab quisquam beatae libero?</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto perferendis aliquid tenetur harum voluptatem debitis commodi ab quisquam beatae libero?</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto perferendis aliquid tenetur harum voluptatem debitis commodi ab quisquam beatae libero?</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto perferendis aliquid tenetur harum voluptatem debitis commodi ab quisquam beatae libero?</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto perferendis aliquid tenetur harum voluptatem debitis commodi ab quisquam beatae libero?</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto perferendis aliquid tenetur harum voluptatem debitis commodi ab quisquam beatae libero?</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto perferendis aliquid tenetur harum voluptatem debitis commodi ab quisquam beatae libero?</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto perferendis aliquid tenetur harum voluptatem debitis commodi ab quisquam beatae libero?</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto perferendis aliquid tenetur harum voluptatem debitis commodi ab quisquam beatae libero?</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto perferendis aliquid tenetur harum voluptatem debitis commodi ab quisquam beatae libero?</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto perferendis aliquid tenetur harum voluptatem debitis commodi ab quisquam beatae libero?</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto perferendis aliquid tenetur harum voluptatem debitis commodi ab quisquam beatae libero?</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto perferendis aliquid tenetur harum voluptatem debitis commodi ab quisquam beatae libero?</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto perferendis aliquid tenetur harum voluptatem debitis commodi ab quisquam beatae libero?</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto perferendis aliquid tenetur harum voluptatem debitis commodi ab quisquam beatae libero?</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto perferendis aliquid tenetur harum voluptatem debitis commodi ab quisquam beatae libero?</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto perferendis aliquid tenetur harum voluptatem debitis commodi ab quisquam beatae libero?</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto perferendis aliquid tenetur harum voluptatem debitis commodi ab quisquam beatae libero?</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto perferendis aliquid tenetur harum voluptatem debitis commodi ab quisquam beatae libero?</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto perferendis aliquid tenetur harum voluptatem debitis commodi ab quisquam beatae libero?</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto perferendis aliquid tenetur harum voluptatem debitis commodi ab quisquam beatae libero?</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto perferendis aliquid tenetur harum voluptatem debitis commodi ab quisquam beatae libero?</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto perferendis aliquid tenetur harum voluptatem debitis commodi ab quisquam beatae libero?</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto perferendis aliquid tenetur harum voluptatem debitis commodi ab quisquam beatae libero?</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto perferendis aliquid tenetur harum voluptatem debitis commodi ab quisquam beatae libero?</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto perferendis aliquid tenetur harum voluptatem debitis commodi ab quisquam beatae libero?</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto perferendis aliquid tenetur harum voluptatem debitis commodi ab quisquam beatae libero?</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto perferendis aliquid tenetur harum voluptatem debitis commodi ab quisquam beatae libero?</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto perferendis aliquid tenetur harum voluptatem debitis commodi ab quisquam beatae libero?</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto perferendis aliquid tenetur harum voluptatem debitis commodi ab quisquam beatae libero?</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto perferendis aliquid tenetur harum voluptatem debitis commodi ab quisquam beatae libero?</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto perferendis aliquid tenetur harum voluptatem debitis commodi ab quisquam beatae libero?</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto perferendis aliquid tenetur harum voluptatem debitis commodi ab quisquam beatae libero?</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto perferendis aliquid tenetur harum voluptatem debitis commodi ab quisquam beatae libero?</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto perferendis aliquid tenetur harum voluptatem debitis commodi ab quisquam beatae libero?</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto perferendis aliquid tenetur harum voluptatem debitis commodi ab quisquam beatae libero?</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto perferendis aliquid tenetur harum voluptatem debitis commodi ab quisquam beatae libero?</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto perferendis aliquid tenetur harum voluptatem debitis commodi ab quisquam beatae libero?</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto perferendis aliquid tenetur harum voluptatem debitis commodi ab quisquam beatae libero?</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto perferendis aliquid tenetur harum voluptatem debitis commodi ab quisquam beatae libero?</p>
+  </div>
+
+</body>
+</html>

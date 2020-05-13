@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Extra Basics</title>
+  <style>
+    /* One may expect that, since the h1 element styling is placed below this class styling, it would change the text colour within to blue
+      However, since class selectors take precedence over tag selectors, the text remains red */
+    .precedence {
+      color: red;
+    }
+
+    h1 {
+      /* 'display: none;'' removes the element from the page layout/Document Object Model (DOM), so the elements below it will shift up to take it place
+        'visiblity: hidden;' hides the element from the screen, but keeps it in the DOM, just making it invisible */
+      /* display: none; */
+
+      /* With the '!important' flag, this ensures that, no matter if its a tag selector, id selector, etc., the selector attribute that contains this flag
+        will take precedence */
+      color: blue !important;
+
+      /* We can also have negative values for margin */
+      margin: -10px 0px 0px -10px;
+    }
+  </style>
+</head>
+<body>
+  <h1 class="precedence">Heading</h1>
+  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus magnam nobis dolorem cumque veniam, ut ratione ab cupiditate animi quos vitae iure qui aut eveniet vel necessitatibus ea minima corporis!
+  </p>
+</body>
+</html>

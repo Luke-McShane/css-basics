@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scaling=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat" rel="stylesheet">
+    <title>CSS Fonts</title>
+    <style>
+      /* A font stack means that the first stack is looked for, and, if unavailable or unfound, the second font in the stack will be search for.
+        This process continues until a font is found: NaN;
+        Here we are using 'web safe' fonts, which means we don't need to include them from an external resource. */
+      body {
+        /* Here we import a font from an external resource. We specify in the link above where we get the font from, then place the font name between apostophes. */
+        font-family: 'Roboto', Helvetica, sans-serif;
+        /* The default font-size is 16px */
+        font-size: 18px;
+        line-height: 1.6;
+      }
+
+      /* Note that we're selecting specific spans by drilling into specific parent elements. */
+      #heading p span {
+        font-weight: bold;
+      }
+
+      #about p span {
+        font-style: italic;
+      }
+
+      /* Units:
+        % - percentage of parent element
+        em - relative to font-size of the parent element
+        rem - relative to the font-size of the root element
+        vh - relative to 1% of the viewport height
+        vw - relative to 1% of the viewport width 
+        This isn't just for fonts - it works for many properties, such as margin, padding, etc..
+        So if a child element has 1em for its margin, and its parent element has a font-size of 16px, then the child's margin will also be 16px.
+        But if the child element has 1rem for its margin, and the root element has a font-size of 24px, then the child's margin will be 24px. */
+    </style>
+
+  </head>
+  <body>
+    <div id="heading">
+      <h2 class="colour-green">Welcome</h2>
+      <p>Lorem ipsum dolor, <span>sit amet consectetur adipisicing elit.</span> Vero fugiat modi sunt quod est exercitationem iure quam error quo voluptatibus.</p>
+    </div>
+    <div id="about">
+      <h2 class="colour-purple">About</h2>
+      <p>Lorem ipsum, dolor <span>sit amet consectetur adipisicing elit. </span>Provident molestias quasi exercitationem cum harum nihil delectus sunt, sequi illo culpa.</p>
+    </div>
+  </body>
+</html>

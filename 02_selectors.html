@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scaling=1.0">
+    <title>CSS Selectors</title>
+    <meta name="description" content="Documenting CSS selectors">
+    <style>
+      /* Element/Tag Styling
+        This selects the entire body section of the HTML */
+      body {
+        background-color: #333;
+      }
+      /* . is for classes. Ensure that, for classes and ids, the name is appropriate. */
+      .colour-green {
+        color: green;
+      }
+      
+      .colour-purple {
+        color: purple;
+      }
+      
+      /* # is for ids */
+      #heading {
+        background-color: lightgray;
+      }
+
+      #about {
+        background-color: lightpink;
+      }
+
+      /* Multiple Selectors
+        We can select multiple classes, ids, and tags simultaneously, as below */
+      #heading, #about {
+        border: 1px solid black;
+        padding: 10px;
+        margin-bottom: 5px;
+      }
+
+      /* We can also use nested selectors to target specific elements nested within  other elements.
+        Note that we don't use a comma here, but instead simply space the nested element within the first element we target.
+        Adding a comma states that we want to target both of these things, and all that fit that criteria within the body.
+        So, for example, #heading, h2, would target all elements with the id of 'heading' and all h2 elements: NaN;
+        On the other heand, #heading h2 would target all the h2 elements within the element that has the id of heading. */
+      #heading p {
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="heading">
+      <h2 class="colour-green">Welcome</h2>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero fugiat modi sunt quod est exercitationem iure quam error quo voluptatibus.</p>
+    </div>
+    <div id="about">
+      <h2 class="colour-purple">About</h2>
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident molestias quasi exercitationem cum harum nihil delectus sunt, sequi illo culpa.</p>
+    </div>
+  </body>
+</html>

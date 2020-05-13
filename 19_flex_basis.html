@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flex Basis</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .header {
+      text-align: center;
+      background: crimson;
+      color: white;
+      padding: 1px;
+      margin: 0;
+    }
+
+    .flexbox div {
+      /* width: 200px; */
+      color: white;
+      text-align: center;
+    }
+
+    .flexbox {
+      display: flex;
+      margin-bottom: 150px;
+      background: #333;
+    }
+
+    /*  Please look further down to #item-4- for further information 
+      If we set flex-basis accordingly, then the initial sizes will be 400/200/200px, and, because flex-grow has not been set, they will not take up the extra
+      roow. However, when the container gets below (400+200+200) 800px, the items within will shrink. Given each has a flex-shrink of 1, they will shrink in
+      proportion to the flex-basis size. So, if the container is resized to 600px, then the first container will be 300px, where the other 2 containers will be
+      150px in width. */
+    #item-1-1 {
+      background-color: blue;
+      flex: 0 1 400px;
+    }
+
+    #item-1-2 {
+      background-color: green;
+      flex: 0 1 200px;
+    }
+
+    #item-1-3 {
+      background-color: purple;
+      flex: 0  1 200px;
+    }
+    
+    /* If we set the container width to 1000px, and set the flex-grow property for each flex-item to 1, and set the flex-basis to auto, then we see that 
+      the items are each set to their preset widths of 500/300/200px respectively. This is because the auto value tells the flex-grow to first deduct the size
+      of the content of the flex-items from the container, and then use the free space and share it equally among the flex items.
+      And if we set the flex-basis to, say, 150/100/0px respectively, then this acts as a min-width, and overrides the width property we set. What happens here
+      is that 150+100+0 is deduced from the container width, and the remaining space is divided and equally shared to all flex-items. If each chunk of shared
+      space is X, then the flex-item widths will be 150 + X pixels, 100 + X pixels, 0 + X pixels, respectively.*/
+    #item-2-1 {
+      width: 500px;
+      background-color: blue;
+      flex: 1 1 0;
+    }
+
+    #item-2-2 {
+      width: 300px;
+      background-color: green;
+      flex: 1 1 0;
+    }
+
+    #item-2-3 {
+      width: 200px;
+      background-color: purple;
+      flex: 1 1 0;
+    }
+
+
+
+    #item-3-1 {
+      width: 500px;
+      background-color: blue;
+      flex: 1 1 auto;
+    }
+
+    #item-3-2 {
+      width: 300px;
+      background-color: green;
+      flex: 1 1 auto;
+    }
+
+    #item-3-3 {
+      width: 200px;
+      background-color: purple;
+      flex: 1 1 auto;
+    }
+
+
+
+    /* Let's set the container width to 1200px. If we have flex-basis properties of 150/100/0, what will each flex-item width be?
+      Understand that flex grow takes into account the flex-basis values before dividing the remaining free container space and dividing it equally
+      So, the free space will be 1200-(150+100+0), which equals 950. So 950/3 will get added to each of the flex-basis value for each item
+      Thus the widths will be:
+        Item 1: 150 + (950/3) = 466.67
+        Item 2: 100 + (950/3) = 416.67
+        Item 3: 0 + (950/3) = 316.67 */
+    #item-4-1 {
+      width: 500px;
+      background-color: blue;
+      flex: 1 1 150px;
+    }
+
+    #item-4-2 {
+      width: 300px;
+      background-color: green;
+      flex: 1 1 100px;
+    }
+
+    #item-4-3 {
+      width: 200px;
+      background-color: purple;
+      flex: 1 1 0;
+    }
+
+
+    /* Setting flex-basis to 100% means that the flex-item will take up 100% of the container before the width is divided
+      Note here that, because the flex-basis is 100%, and thus 100% of the container is taken up before the other flex properties are set,
+      flex-grow will not be used, because there is nothing for the flex-item to grow to. Thus, setting the flex-grow property to anything will
+      have no effect. Only setting the flex-shrink property will have an effect, becauese, if we want more than one flex-item within the container,
+      we must shrink the items to fit, because the first flex-item takes up the entire container width.
+      So, let's set the container to 1000px, and try to determine what the width of each flex-item will be
+      Total space taken up: 100% + 75% + 200px = 1000 + 750 + 200 = 1950
+      Each has a flex-shrink set to 1, so the 950 extra pixels will be divided equally into 3 and taken off each item
+      Okay, I have no idea how to calculate the width, but they are:
+        flex-item 1 width: 512.823  
+        flex-item 1 width: 384.615  
+        flex-item 1 width: 102.563  */
+    #item-5-1 {
+      width: 500px;
+      background-color: blue;
+      flex: 0 1 100%;
+    }
+
+    #item-5-2 {
+      width: 300px;
+      background-color: green;
+      flex: 0 1 75%;
+    }
+
+    #item-5-3 {
+      width: 200px;
+      background-color: purple;
+      flex: 0 1 auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h2>"flex-basis: 400/200/200px respectively"</h2>
+  </div>  
+  <div class="flexbox" id="flex-row-1">
+    <div id="item-1-1">
+      <h1>Item 1</h1>
+    </div>
+    <div id="item-1-2">
+      <h1>Item 2</h1>
+    </div>
+    <div id="item-1-3">
+      <h1>Item 3</h1>
+    </div>
+  </div>
+
+  <div class="header">
+    <h2>"flex-basis: 0; with preset flex-item widths of 500/300/200px respectively"</h2>
+  </div>  
+  <div class="flexbox" id="flex-row-2">
+    <div id="item-2-1">
+      <h1>Item 1</h1>
+    </div>
+    <div id="item-2-2">
+      <h1>Item 2</h1>
+    </div>
+    <div id="item-2-3">
+      <h1>Item 3</h1>
+    </div>
+  </div>
+
+  <div class="header">
+    <h2>"flex-basis: auto"</h2>
+  </div>  
+  <div class="flexbox" id="flex-row-3">
+    <div id="item-3-1">
+      <h1>Item 1</h1>
+    </div>
+    <div id="item-3-2">
+      <h1>Item 2</h1>
+    </div>
+    <div id="item-3-3">
+      <h1>Item 3</h1>
+    </div>
+  </div>
+
+  <div class="header">
+    <h2>"flex-basis: 150/100/0px respectively"</h2>
+  </div>  
+  <div class="flexbox" id="flex-row-4">
+    <div id="item-4-1">
+      <h1>Item 1</h1>
+    </div>
+    <div id="item-4-2">
+      <h1>Item 2</h1>
+    </div>
+    <div id="item-4-3">
+      <h1>Item 3</h1>
+    </div>
+  </div>
+
+  <div class="header">
+    <h2>"flex-basis: 100%; with flex-item widths of 500/300/200px respectively"</h2>
+  </div>  
+  <div class="flexbox" id="flex-row-5">
+    <div id="item-5-1">
+      <h1>Item 1</h1>
+    </div>
+    <div id="item-5-2">
+      <h1>Item 2</h1>
+    </div>
+    <div id="item-5-3">
+      <h1>Item 3</h1>
+    </div>
+  </div>
+</body>
+</html>

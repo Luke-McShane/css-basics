@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Link and Button Styling</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    a {
+      color: #333;
+      text-decoration: none;
+    }
+
+    /* Here we have a few pseudo-selectors. These are different states of a single element.
+      The visited state is after the link has been clicked; the hover state is as the cursor is hovering over it; the active state is as you're
+      clicking the link */
+    a:hover {
+      color: coral;
+      /* text-decoration: underline; */
+    }
+
+    /* a:visited {
+      color: #ff0000;
+    } 
+
+    a:active {
+      color: indigo
+    } */
+
+    /* Button Styling */
+    .btn {
+      background: #4c6ca0;
+      color: #ffffff;
+      border: none;
+      font-size: 16px;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: #446190;
+      color: #f4f4f4;
+    }
+
+    .btn2 {
+      background: indigo;
+      color: white;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      padding: 8px 12px;
+    }
+
+    .btn2:hover {
+      background: indianred;
+      color: #ffffff;
+    }
+
+  </style>
+</head>
+<body>
+  <br>
+  <a href="#" class="btn">Click Here</a>
+  <br>
+  <br>
+  <button class="btn">My Button</button>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <a href="#" class="btn2">Second Button</a>
+  <br>
+  <br>
+  <button class="btn2">Second Button</button>
+</body>
+</html>

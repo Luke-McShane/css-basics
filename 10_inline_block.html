@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inline and Block Styling</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    li {
+      display: inline;
+    }
+
+    li a {
+      padding-right: 25px;
+    }
+
+    img {
+      display: block;
+      margin: auto;
+    }
+
+    .box {
+      /* If we set the display to 'inline', the width and margin properties (along with others, such as float), will be ignored due to how an inline element
+        cannot have a width
+        Thus, the element acts like a completely inline element, with the text taking up as much space as necessary, ignoring the width property 
+      display: inline; */
+
+      /* However, we can use 'display: inline-block' to ensure the element behaves like an inline element, not taking up all the space, but can still be
+        attributed a width. Please note that we're setting the box-sizing to border-box to ensure the padding is taken into consideration when calculating
+        the width 
+        Finally, this do*/
+
+      /* You will note that this behaviour is uncannily similar to 'float: left', but there is a difference.
+        With float left, we are tell the element to be the minimum width necessary to occupy the element, which takes into consideration the total 
+        width and height. Any elements that come after this floated element, given they are of appropriate size, will wrap around this floated element
+        The floated item is taken out of the normal flow of the document, meaning that, although the line boxes (the box that whaps each line of text)
+        will ensure the text wraps around the floated item, the actual container of the text will run behind the floated item - due to the floated item
+        being taken out of the standard document flow. */
+
+      /* Setting the display to inline-block, however, keeps the item in the standard flow, and allows for a more responsive design and reduces the chances
+        of encountering tedious display issues that removing the floated item from the flow may cause. */
+      display: inline-block;
+      background: #f4f4f4;
+      border: 1px solid #333;
+      padding: 20px;
+      margin-bottom: 15px;
+      width: 32%;
+    }
+  </style>
+</head>
+<body>
+  <ul>
+    <li><a href="#">Writing Style</a></li>
+    <li><a href="#">Developing Prose</a></li>
+    <li><a href="#">Finding Inspiration</a></li>
+  </ul>
+
+  <br><br>
+
+  <!-- An image is an inline element. We can check this by going into the Chrome dev tools and noting that it doesn't take up the entire width of the screen.
+    We can make the img block level, however, by setting 'display: block', and we would want to do this if, for example, we want to center the image to the
+    middle of the screen by using 'margin: auto'. This would not work if it were inline, for it has no width to divide and use as padding. When we have that
+    extra width from being a block-level element, however, we have width to use. -->
+  <img src="img/leaf.png" alt="leaf">
+
+  <div class="box">
+    <h3>Heading 1</h3>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati eius nisi delectus, aperiam officia suscipit aspernatur explicabo eligendi veniam iste perspiciatis? Sapiente quia, explicabo labore porro corporis laboriosam veritatis incidunt.</p>
+  </div>
+  <div class="box">
+    <h3>Heading 2</h3>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati eius nisi delectus, aperiam officia suscipit aspernatur explicabo eligendi veniam iste perspiciatis? Sapiente quia, explicabo labore porro corporis laboriosam veritatis incidunt.</p>
+  </div>
+  <div class="box">
+    <h3>Heading 3</h3>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati eius nisi delectus, aperiam officia suscipit aspernatur explicabo eligendi veniam iste perspiciatis? Sapiente quia, explicabo labore porro corporis laboriosam veritatis incidunt.</p>
+  </div>
+</body>
+</html>

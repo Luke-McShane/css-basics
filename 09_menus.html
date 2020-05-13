@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu Styling</title>
+  <style>
+    body {
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      font-size: 18px;
+    }
+    /* Navbar Styling */
+    .navbar {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      background: #4c6ca0;
+      border-radius: 5px;
+      /* Without the overflow property set to auto, the background colour would not be present, for it would collapse due to the floating items
+        The overflow property describes what should be done when the content is too large to fit in its block-level container 
+        If there is too much text, or an image is too large, 'auto' will add scrollbars where necessary
+        Here, I believe that, without overflow added, the background colour is essentially invisible due to the structure of the list being altered
+        I can't say for certain what extactly is happening
+        However, setting overflow to auto appears to wrap the colour to whatever now pertains to the list */
+      overflow: auto;
+    }
+
+    .navbar li {
+      /* With float set to left, the list items pack together to the left. Yet this causes the ul property of colour to appear to vanish, and we must set the
+        overflow property to counteract this */
+      float: left;
+    }
+
+    .navbar li a {
+      /* Here we set the display to block, meaning the 'a' element will get treated like a block-level element, so we can add padding to it, for example
+        Note that this doesn't cause the list item to just to a new line, and this is because this element is contained with a list item, which is floated
+        to the left and, also, the entire content of the list item is displayed as block 
+        Further, just because it's block doesn't mean it must take up an entire line, for there may be preset widths for elements, meaning they can still
+        be floated left and right */
+      display: block;
+      text-decoration: none;
+      color: #ffffff;
+      padding: 15px 20px;
+    }
+
+    .navbar li a:hover{
+      background-color: #446190;
+      color: #f4f4f4;
+    }
+    /* Side Menu Styling */
+    .side-menu {
+      list-style: none;
+      border: 2px #ddd solid;
+      border-radius: 10px;
+      width: 300px;
+      /* Lists have 40px padding on the left side by default. Entering your own padding will overwrite this padding */
+      padding: 20px
+    }
+
+    .side-menu li {
+      line-height: 2.4em;
+      border-bottom: 1px #ddd dashed;
+    }
+
+    /* We can target the last child of a list using the pseudo-selector 'last-child' */
+    .side-menu li:last-child {
+      border-bottom: none;
+    }
+
+    .side-menu li a {
+      color: #333;
+      text-decoration: none;
+    }
+
+    .side-menu li a:hover {
+      color: gold;
+    }
+
+    .navbar2 {
+      background: indigo;
+      border-radius: 8px;
+      list-style: none;
+      padding: 10px 20px;
+      overflow: auto;
+    }
+
+    .navbar2 li {
+      float: left;
+      margin-right: 10px;
+      padding-right: 10px;
+      border-right: 1px dotted goldenrod;
+    }
+
+    .navbar2 li:last-child {
+      border-right: none;
+    }
+
+    .navbar2 li a {
+      color: wheat;
+      text-decoration: none;
+    }
+
+    .navbar2 li a:hover {
+      font-size: 20px;
+    }
+
+    .side-menu2 {
+      border: 2px dashed brown;
+      border-radius: 8px;
+      padding: 20px 35px;
+      list-style-type: none;
+    }
+
+    .side-menu2 li {
+      display: block;
+      width: 5%;
+      border: 1px dotted sandybrown;
+      margin: 10px 0px;
+    
+    }
+
+    .side-menu2 li a {
+      text-decoration: none;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <ul class="navbar">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Services</a></li>
+    <li><a href="#">Pricing</a></li>
+  </ul>
+  <br>
+  <br>
+  <br>
+  <br>
+  <ul class="side-menu">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Services</a></li>
+    <li><a href="#">Pricing</a></li>
+  </ul>
+  <br>
+  <br>
+  <br>
+  <br>
+  <ul class="navbar2">
+    <li><a href="#">Item 1</a></li>
+    <li><a href="#">Item 2</a></li>
+    <li><a href="#">Item 3</a></li>
+    <li><a href="#">Item 4</a></li>
+  </ul>
+  <br>
+  <br>
+  <ul class="side-menu2">
+    <li><a href="#">Item 1</a></li>
+    <li><a href="#">Item 2</a></li>
+    <li><a href="#">Item 3</a></li>
+    <li><a href="#">Item 4</a></li>
+  </ul>
+</body>
+</html>
